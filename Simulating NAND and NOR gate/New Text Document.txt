@@ -1,0 +1,20 @@
+%option noyywrap
+%{
+	#include<stdio.h>
+%}
+keyword "int"|"double"|"char"
+identifiers "input"|"p1"|"p2"|"compute"|"test_input"|"q"|"r2"|"calculatevalue"
+Others "()"|";"|","
+
+
+%% 
+{keyword} {printf("This is a valid keyword\n");}
+{identifiers} {printf("This is a valid identifiers\n");}
+{Others}  {printf("This is a valid others\n");}
+
+%%
+int main()
+{
+        yylex();
+	return 0;
+}
