@@ -1,0 +1,19 @@
+// DSCH 2.6h
+// 7/3/2022 3:05:21 PM
+// E:\Labsoft\VLSI Lab\DSCH03\Export dsch2\bufferlab5.sch
+
+module bufferlab5( in1,out1);
+ input in1;
+ output out1;
+ nmos #(1) nmos(w2,vss,in1); // 1.0u 0.12u
+ pmos #(1) pmos(w2,vdd,in1); // 2.0u 0.12u
+ pmos #(1) pmos(out1,vdd,w2); // 2.0u 0.12u
+ nmos #(1) nmos(out1,vss,w2); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#10 in1=~in1;
+
+// Simulation parameters
+// in1 CLK 10 10
